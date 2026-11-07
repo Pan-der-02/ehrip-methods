@@ -3,7 +3,7 @@
 Transparent methods that flag healthcare claims for human review and state the reason for every flag.
 Part of the Explainable Healthcare Risk Intelligence Platform (E-HRIP) research project.
 
-**Status:** research prototype, version 0.2.0. Tested only on CMS public synthetic data.
+**Status:** research prototype, version 0.2.0. Tested only on CMS public synthetic data; not run on real claims.
 
 ## What it does
 
@@ -27,6 +27,21 @@ would achieve. Every run records its input file hash, settings, seed, and softwa
 
 Flags on unplanted claims are reported but not scored, so precision and false-positive rates are **not**
 measured. Real-world performance can only be evaluated with an organization's data and approval.
+
+## Results on CMS synthetic claims (November 7, 2026)
+
+Run on the CMS synthetic carrier file: 90,705 claims from 1,121,004 claim lines (input SHA-256
+`ff63b207...3dffce`, seed 20260101, version 0.2.0). Full run record: [`results/2026-11-07_carrier/`](results/2026-11-07_carrier/).
+
+| Planted problem | Planted | Found | Recall | Expected recall from random selection |
+|---|---|---|---|---|
+| Duplicate claim | 200 | 200 | 100% | 0.22% |
+| Inflated payment (x8) | 200 | 195 | 97.5% | 0.33% |
+| Date-order error | 200 | 200 | 100% | 0.22% |
+
+On the original data, the rules flagged 107 claims, all through the amount rule. In this version the amount rule
+compares total claim payments grouped by the code on each claim's first line; carrier claims average about 12
+lines, so a flag can reflect a claim with many lines. Line-level comparison is the planned next step.
 
 ## Data
 

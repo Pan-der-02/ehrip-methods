@@ -1,0 +1,68 @@
+{
+  "run_utc": "2026-11-07T23:14:15+00:00",
+  "version": "0.2.0",
+  "source": "carrier.csv",
+  "input_sha256": "ff63b2070eab6754f8664670b415cbcd65fe759249afa2a7e147eb82563dffce",
+  "seed": 20260101,
+  "config": {
+    "robust_z_threshold": 6.0,
+    "min_peer_claims": 30,
+    "inject_n_each": 200,
+    "inflate_factor": 8.0
+  },
+  "load_info": {
+    "delimiter": "|",
+    "columns_used": {
+      "claim_id": "CLM_ID",
+      "bene_id": "BENE_ID",
+      "provider": "PRF_PHYSN_NPI",
+      "from_dt": "CLM_FROM_DT",
+      "thru_dt": "CLM_THRU_DT",
+      "pay_amt": "CLM_PMT_AMT",
+      "peer_key": "HCPCS_CD"
+    },
+    "claim_lines_read": 1121004,
+    "pay_amt_rollup": "claim-level amount"
+  },
+  "claims_loaded": 90705,
+  "claims_flagged": 107,
+  "flags_by_rule": {
+    "amount_outlier": 107
+  },
+  "peer_group_notes": {
+    "peer_groups_used": 19,
+    "peer_groups_skipped_small": 4,
+    "peer_groups_skipped_zero_mad": 0
+  },
+  "controlled_test": {
+    "claims_in_test_copy": 90905,
+    "possible_duplicate": {
+      "planted": 200,
+      "found": 200,
+      "recall": 1.0,
+      "claims_flagged_by_rule": 200,
+      "random_selection_expected_recall": 0.0022
+    },
+    "date_order": {
+      "planted": 200,
+      "found": 200,
+      "recall": 1.0,
+      "claims_flagged_by_rule": 200,
+      "random_selection_expected_recall": 0.0022
+    },
+    "amount_outlier": {
+      "planted": 200,
+      "found": 195,
+      "recall": 0.975,
+      "claims_flagged_by_rule": 301,
+      "random_selection_expected_recall": 0.0033
+    },
+    "flags_on_unplanted_claims": 106,
+    "unplanted_claims": 90305,
+    "note": "Synthetic data has no known real errors, so flags on unplanted claims cannot be scored as right or wrong; precision and false-positive rates are not measured. Random-selection recall is the share of planted cases expected to be caught by flagging the same number of claims at random."
+  },
+  "python": "3.13.18",
+  "pandas": "3.0.5",
+  "numpy": "2.5.3",
+  "demo": false
+}
