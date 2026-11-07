@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "E-HRIP Explainable Claim-Flagging Methods"
+version: 0.2.0
+authors:
+  - family-names: Olabiyi
+    given-names: Temiloluwa Emmanuel
+    orcid: "https://orcid.org/[your-ORCID]"
+license: MIT
