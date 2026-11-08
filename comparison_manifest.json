@@ -1,0 +1,70 @@
+{
+  "run_utc": "2026-11-08T03:59:58+00:00",
+  "version": "0.4.0",
+  "ehrip_version": "0.3.1",
+  "data_year": "2023",
+  "source": "MUP_PHY_R25_P05_V20_D23_Prov_Svc.csv",
+  "input_sha256": "c6766dda7c66c74682af892d9ed5f8a347248dc0f6be2bda8aee7eecc02a902b",
+  "leie_source": "UPDATED.csv",
+  "leie_sha256": "7483d47bc48734f7955095d51d13dd1111b11cc8a60f54ebe894806e6c293c03",
+  "config": {
+    "robust_z_threshold": 6.0,
+    "min_peer_rows": 30,
+    "min_benes": 11,
+    "measure": "standardized Medicare payment per beneficiary",
+    "zero_spread_tolerance": 1e-09
+  },
+  "budget_k": 114579,
+  "base": {
+    "providers_in_data": 1175281,
+    "providers_on_leie": 274,
+    "share_on_leie": 0.0002331357351986461,
+    "expected_on_leie_if_random": 26.71
+  },
+  "approaches": {
+    "ehrip": {
+      "providers_selected": 114579,
+      "on_leie": 73,
+      "share_on_leie": 0.000637,
+      "lift_vs_all_providers": 2.73,
+      "p_value_one_sided_binomial": 1.222941135620714e-13,
+      "on_leie_excluded_after_data_year": 71
+    },
+    "largest_billers": {
+      "providers_selected": 114579,
+      "on_leie": 46,
+      "share_on_leie": 0.000401,
+      "lift_vs_all_providers": 1.72,
+      "p_value_one_sided_binomial": 0.0004345131151319506,
+      "on_leie_excluded_after_data_year": 43
+    },
+    "classic_outlier": {
+      "providers_selected": 114579,
+      "on_leie": 63,
+      "share_on_leie": 0.00055,
+      "lift_vs_all_providers": 2.36,
+      "p_value_one_sided_binomial": 1.6352031894155301e-09,
+      "on_leie_excluded_after_data_year": 62
+    }
+  },
+  "paired_comparison": {
+    "largest_billers": {
+      "leie_only_ehrip": 47,
+      "leie_only_other": 20,
+      "leie_both": 26,
+      "providers_overlap": 37652,
+      "p_value_one_sided_sign_test": 0.0006535843428817828
+    },
+    "classic_outlier": {
+      "leie_only_ehrip": 18,
+      "leie_only_other": 8,
+      "leie_both": 55,
+      "providers_overlap": 71988,
+      "p_value_one_sided_sign_test": 0.03775934875011473
+    }
+  },
+  "python": "3.14.4",
+  "pandas": "3.1.1",
+  "numpy": "2.5.4",
+  "demo": false
+}
