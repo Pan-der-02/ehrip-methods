@@ -43,6 +43,25 @@ On the original data, the rules flagged 107 claims, all through the amount rule.
 compares total claim payments grouped by the code on each claim's first line; carrier claims average about 12
 lines, so a flag can reflect a claim with many lines. Line-level comparison is the planned next step.
 
+## Provider-level module on real Medicare data (version 0.3.0)
+
+`ehrip_provider.py` applies the same robust peer comparison to CMS's public *Medicare Physician & Other
+Practitioners - by Provider and Service* data (real Medicare payments, summarized by provider, service code,
+and place of service). For each provider and code, it compares the standardized Medicare payment per
+beneficiary with every provider billing the same code in the same place of service, flags rows far above
+their peers (robust z-score above 6.0, peer groups of at least 30), and states the reason for each flag in
+dollars. It reports what Medicare paid on flagged rows, how far those payments exceed the peer median, and
+how often flagged providers appear on the HHS-OIG List of Excluded Individuals/Entities (LEIE) compared with
+all providers in the data. The rule and its settings were published here before the module was run on real data.
+
+```
+python ehrip_provider.py --input <CMS by Provider and Service CSV> --leie UPDATED.csv --year <data year> --out run_provider
+python ehrip_provider.py --demo --out demo_provider    # toy data, code test only
+```
+
+A flag is a reason to review, not a finding that a payment was improper. Appearing on the LEIE is an
+external signal, not proof about any flagged payment.
+
 ## Data
 
 [CMS Synthetic Medicare Enrollment, Fee-for-Service Claims, and Prescription Drug Event Data](https://data.cms.gov/collection/synthetic-medicare-enrollment-fee-for-service-claims-and-prescription-drug-event)
