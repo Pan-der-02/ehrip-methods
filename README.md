@@ -3,7 +3,7 @@
 Transparent methods that flag healthcare claims for human review and state the reason for every flag.
 Part of the Explainable Healthcare Risk Intelligence Platform (E-HRIP) research project.
 
-**Status:** research prototype, version 0.2.0. Tested only on CMS public synthetic data; not run on real claims.
+**Status:** research prototype. Claim-level rules (version 0.2.0) tested on CMS synthetic claims; provider-level module (version 0.3.1) run on real 2023 Medicare payment data.
 
 ## What it does
 
@@ -43,7 +43,7 @@ On the original data, the rules flagged 107 claims, all through the amount rule.
 compares total claim payments grouped by the code on each claim's first line; carrier claims average about 12
 lines, so a flag can reflect a claim with many lines. Line-level comparison is the planned next step.
 
-## Provider-level module on real Medicare data (version 0.3.0)
+## Provider-level module on real Medicare data (version 0.3.1)
 
 `ehrip_provider.py` applies the same robust peer comparison to CMS's public *Medicare Physician & Other
 Practitioners - by Provider and Service* data (real Medicare payments, summarized by provider, service code,
@@ -58,6 +58,26 @@ all providers in the data. The rule and its settings were published here before 
 python ehrip_provider.py --input <CMS by Provider and Service CSV> --leie UPDATED.csv --year <data year> --out run_provider
 python ehrip_provider.py --demo --out demo_provider    # toy data, code test only
 ```
+
+### Results on 2023 Medicare data (November 8, 2026)
+
+Run on CMS's *Medicare Physician & Other Practitioners - by Provider and Service* file for data year 2023
+(`MUP_PHY_R25_P05_V20_D23_Prov_Svc.csv`, SHA-256 `c6766dda...c902b`) and the HHS-OIG LEIE full database
+(`UPDATED.csv`, SHA-256 `7483d47b...293c03`), version 0.3.1. Full run record:
+[`results/2026-11-08_provider/`](results/2026-11-08_provider/).
+
+| Measure | Result |
+|---|---|
+| Records analyzed | 9,660,647 (1,175,281 providers; $93.7 billion in Medicare payments) |
+| Records flagged | 193,387 (114,579 providers) |
+| Medicare paid on flagged records | $9.04 billion |
+| Flagged providers on the LEIE | 73 (expected by chance: 26.7) |
+| Lift | 2.73x (one-sided binomial p = 1.2e-13) |
+| Of those 73, excluded after 2023 | 71 |
+
+Version 0.3.1 treats a peer group's spread as zero when it is zero apart from floating-point rounding, as the
+rule specifies. An earlier run of version 0.3.0 the same day gave a lift of 2.65x, with the same 73 providers
+on the LEIE.
 
 A flag is a reason to review, not a finding that a payment was improper. Appearing on the LEIE is an
 external signal, not proof about any flagged payment.
@@ -83,9 +103,9 @@ versions, test results), and `RUN_NOTE.md` (a readable summary).
 
 ## Limitations
 
-- Synthetic data only. Results show the method works as designed on planted cases, not real-world accuracy or savings.
+- The claim-level results use synthetic data with planted cases. The provider-level results use real Medicare payment summaries and an external federal benchmark (the LEIE). Evaluation on real claims, with confirmed review outcomes, is the next stage.
 - Claims data cannot show whether supporting medical records exist. The methods prioritize claims for documentation review; they do not detect missing documentation directly.
-- Rule thresholds are starting values and would need tuning on real data.
+- Rule thresholds are starting values, refined as results on real data accumulate.
 
 ## License and citation
 

@@ -1,0 +1,68 @@
+{
+  "run_utc": "2026-11-08T02:59:23+00:00",
+  "version": "0.3.1",
+  "data_year": "2023",
+  "source": "MUP_PHY_R25_P05_V20_D23_Prov_Svc.csv",
+  "input_sha256": "c6766dda7c66c74682af892d9ed5f8a347248dc0f6be2bda8aee7eecc02a902b",
+  "leie_source": "UPDATED.csv",
+  "leie_sha256": "7483d47bc48734f7955095d51d13dd1111b11cc8a60f54ebe894806e6c293c03",
+  "config": {
+    "robust_z_threshold": 6.0,
+    "min_peer_rows": 30,
+    "min_benes": 11,
+    "measure": "standardized Medicare payment per beneficiary",
+    "zero_spread_tolerance": 1e-09
+  },
+  "load_info": {
+    "columns_used": {
+      "npi": "Rndrng_NPI",
+      "prov_type": "Rndrng_Prvdr_Type",
+      "state": "Rndrng_Prvdr_State_Abrvtn",
+      "hcpcs": "HCPCS_Cd",
+      "hcpcs_desc": "HCPCS_Desc",
+      "pos": "Place_Of_Srvc",
+      "benes": "Tot_Benes",
+      "srvcs": "Tot_Srvcs",
+      "pay": "Avg_Mdcr_Pymt_Amt",
+      "stdzd": "Avg_Mdcr_Stdzd_Amt"
+    },
+    "rows_read": 9660647
+  },
+  "leie_info": {
+    "leie_rows_with_npi": 8743
+  },
+  "peer_group_notes": {
+    "peer_groups_total": 8849,
+    "peer_groups_used": 3804,
+    "peer_groups_skipped_small": 4922,
+    "peer_groups_skipped_zero_mad": 123,
+    "rows_analyzed": 9660647,
+    "rows_in_used_groups": 9048896,
+    "providers_analyzed": 1175281,
+    "medicare_paid_analyzed": 93721075813.28165
+  },
+  "totals": {
+    "rows_flagged": 193387,
+    "providers_flagged": 114579,
+    "medicare_paid_on_flagged_rows": 9036817957.569954,
+    "amount_above_peer_median": 6652796724.203453
+  },
+  "leie_check": {
+    "providers_in_data": 1175281,
+    "providers_in_data_on_leie": 274,
+    "share_in_data_on_leie": 0.000233,
+    "providers_flagged": 114579,
+    "providers_flagged_on_leie": 73,
+    "share_flagged_on_leie": 0.000637,
+    "lift": 2.73,
+    "expected_flagged_on_leie_if_random": 26.71,
+    "p_value_one_sided_binomial": 1.222941135620714e-13,
+    "flagged_on_leie_excluded_before_data_year": 1,
+    "flagged_on_leie_excluded_during_data_year": 1,
+    "flagged_on_leie_excluded_after_data_year": 71
+  },
+  "python": "3.14.4",
+  "pandas": "3.1.1",
+  "numpy": "2.5.4",
+  "demo": false
+}
