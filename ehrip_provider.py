@@ -27,6 +27,13 @@ DATA
        (the full national file, or a filtered export, as CSV)
   HHS-OIG LEIE: https://oig.hhs.gov/exclusions/exclusions_list.asp  ->  full database CSV
 
+VERSION NOTE
+  0.3.1: a peer group whose median absolute deviation is zero up to floating-point rounding
+         (below one billionth of the group median) is now treated as zero spread and skipped,
+         as the rule intends. Version 0.3.0 compared MAD with exactly 0, so 24 code groups whose
+         spread was zero apart from rounding error (about 1e-14) were used, and small differences
+         in them produced extreme z-scores. No other change.
+
 USAGE
   python ehrip_provider.py --input MUP_PHY_..._Prov_Svc.csv --leie UPDATED.csv --year 2023 --out run_provider
   python ehrip_provider.py --demo --out demo_provider     # toy data, code test only
@@ -43,7 +50,7 @@ import sys
 import numpy as np
 import pandas as pd
 
-__version__ = "0.3.0"
+__version__ = "0.3.1"
 
 # Settings are fixed before any real data is analyzed.
 CFG = {
@@ -51,6 +58,7 @@ CFG = {
     "min_peer_rows": 30,         # smallest peer group (same HCPCS code and place of service) used
     "min_benes": 11,             # rows below this beneficiary count are skipped (CMS suppresses <11)
     "measure": "standardized Medicare payment per beneficiary",
+    "zero_spread_tolerance": 1e-9,  # a peer group's MAD below this fraction of its median counts as zero
 }
 
 CMS_COLS = {
@@ -159,6 +167,9 @@ def detect(df, cfg):
     d["med"] = g.transform("median")
     d["absdev"] = (d["ppb"] - d["med"]).abs()
     d["mad"] = d.groupby(keys, observed=True)["absdev"].transform("median")
+    # spread that is zero apart from floating-point rounding counts as zero (see VERSION NOTE)
+    tol = cfg["zero_spread_tolerance"] * d["med"].abs().clip(lower=1.0)
+    d.loc[d["mad"] <= tol, "mad"] = 0.0
     groups = d.groupby(keys, observed=True).agg(n=("ppb", "size"), mad=("mad", "first"))
     notes = {
         "peer_groups_total": int(len(groups)),
@@ -244,6 +255,13 @@ For each provider, service code (HCPCS), and place of service, the standardized 
 beneficiary is compared with all providers billing the same code in the same place of service. A row is
 flagged when its robust z-score (median and median absolute deviation) is above {man['config']['robust_z_threshold']},
 in peer groups of at least {man['config']['min_peer_rows']} providers. Standardized amounts remove geographic payment differences.
+Peer groups with zero spread (MAD of zero, including zero apart from floating-point rounding) are skipped.
+
+## Version note
+Version 0.3.1 corrects one implementation detail of the rule above. Version 0.3.0 skipped a peer group only
+when its MAD was exactly 0, so groups whose spread was zero apart from rounding error were used, and tiny
+differences in them produced extreme z-scores. Version 0.3.1 treats a MAD below one billionth of the group
+median as zero. No other change was made.
 
 ## Results
 - Rows analyzed: {n['rows_analyzed']:,} ({n['providers_analyzed']:,} providers); Medicare paid on those rows: ${n['medicare_paid_analyzed']:,.0f}
