@@ -79,6 +79,27 @@ Version 0.3.1 treats a peer group's spread as zero when it is zero apart from fl
 rule specifies. An earlier run of version 0.3.0 the same day gave a lift of 2.65x, with the same 73 providers
 on the LEIE.
 
+### Comparison with common approaches (November 8, 2026)
+
+`ehrip_compare.py` (version 0.4.0) compares the E-HRIP rule with two common approaches on the same data. Its
+design was published here before it was run: every approach selects the same number of providers (the 114,579
+E-HRIP flags), and the outcome is whether a selected provider appears on the LEIE. Full run record:
+[`results/2026-11-08_compare/`](results/2026-11-08_compare/).
+
+| Approach (114,579 providers each) | On the LEIE | Excluded after 2023 | Reason per flag |
+|---|---|---|---|
+| E-HRIP (robust peer comparison, standardized payments) | 73 | 71 | Yes |
+| Classic outlier score (mean and standard deviation, actual payments) | 63 | 62 | No |
+| Largest billers (total Medicare payment) | 46 | 43 | No |
+| Random selection (expected) | 26.7 | | No |
+
+Paired comparison of the LEIE providers selected by only one approach: E-HRIP 47, largest billers 20 (one-sided
+exact sign test p = 0.0007); E-HRIP 18, classic outlier score 8 (p = 0.038).
+
+```
+python ehrip_compare.py --input <CMS by Provider and Service CSV> --leie UPDATED.csv --year <data year> --out run_compare
+```
+
 A flag is a reason to review, not a finding that a payment was improper. Appearing on the LEIE is an
 external signal, not proof about any flagged payment.
 
