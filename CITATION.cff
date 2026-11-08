@@ -1,7 +1,22 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 title: "E-HRIP Explainable Claim-Flagging Methods"
-version: 0.2.0
+version: 0.4.0
+date-released: 2026-11-08
+abstract: >-
+  Transparent methods that flag healthcare claims and providers for human review and state the reason
+  for every flag. Includes claim-level rules tested on CMS synthetic Medicare claims, a provider-level
+  peer comparison run on CMS's public 2023 Medicare Physician and Other Practitioners data and checked
+  against the HHS-OIG List of Excluded Individuals/Entities, and a comparison with common approaches.
+  Full run records are included.
+keywords:
+  - payment integrity
+  - Medicare
+  - Medicaid
+  - improper payments
+  - explainable methods
+  - healthcare claims
+repository-code: "https://github.com/Pan-der-02/ehrip-methods"
 authors:
   - family-names: Olabiyi
     given-names: Temiloluwa Emmanuel
