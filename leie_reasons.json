@@ -1,0 +1,74 @@
+{
+  "run_utc": "2026-11-10T02:55:28+00:00",
+  "flags_file": "provider_flags_1.csv",
+  "flags_sha256": "0dc323909b8c5ab81d78d64afb98be1ffa3d0cc7c2a8c4dbbb382c8b4ef54e05",
+  "leie_file": "a5e28bc8-UPDATED.csv",
+  "leie_sha256": "7483d47bc48734f7955095d51d13dd1111b11cc8a60f54ebe894806e6c293c03",
+  "data_year": 2023,
+  "flagged_providers_on_leie": 73,
+  "excluded_before_data_year": 1,
+  "excluded_during_data_year": 1,
+  "excluded_after_data_year": 71,
+  "by_exclusion_type": {
+    "1128b4": {
+      "heading": "License revocation or suspension (b)(4)",
+      "providers": 34,
+      "excluded_after_data_year": 34
+    },
+    "1128a1": {
+      "heading": "Conviction of program-related crimes (a)(1)",
+      "providers": 19,
+      "excluded_after_data_year": 17
+    },
+    "1128a4": {
+      "heading": "Felony conviction relating to controlled substance (a)(4)",
+      "providers": 7,
+      "excluded_after_data_year": 7
+    },
+    "1128a3": {
+      "heading": "Felony conviction relating to health care fraud (a)(3)",
+      "providers": 7,
+      "excluded_after_data_year": 7
+    },
+    "1128b7": {
+      "heading": "Fraud, kickbacks, and other prohibited activities (b)(7)",
+      "providers": 3,
+      "excluded_after_data_year": 3
+    },
+    "1128b1": {
+      "heading": "Conviction relating to fraud (b)(1)",
+      "providers": 1,
+      "excluded_after_data_year": 1
+    },
+    "1128b3": {
+      "heading": "Misdemeanor conviction relating to controlled substance (b)(3)",
+      "providers": 1,
+      "excluded_after_data_year": 1
+    },
+    "1128a2": {
+      "heading": "Conviction relating to patient abuse (a)(2)",
+      "providers": 1,
+      "excluded_after_data_year": 1
+    }
+  },
+  "by_group": {
+    "License revocation or suspension": {
+      "providers": 34,
+      "excluded_after_data_year": 34
+    },
+    "Controlled-substance conviction": {
+      "providers": 8,
+      "excluded_after_data_year": 8
+    },
+    "Conviction relating to patient abuse or neglect": {
+      "providers": 1,
+      "excluded_after_data_year": 1
+    },
+    "Fraud and program-related convictions": {
+      "providers": 30,
+      "excluded_after_data_year": 28
+    }
+  },
+  "python": "3.13.18",
+  "pandas": "3.0.5"
+}
