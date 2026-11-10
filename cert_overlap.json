@@ -1,0 +1,241 @@
+{
+  "flags_file": "provider_flags_1.csv",
+  "flags_sha256": "0dc323909b8c5ab81d78d64afb98be1ffa3d0cc7c2a8c4dbbb382c8b4ef54e05",
+  "cms_source": "CMS 2025 Medicare FFS Supplemental Improper Payment Data, Table L1 (p. 67)",
+  "flagged_records_total": 193387,
+  "flagged_providers_total": 114579,
+  "flagged_paid_total": 9036817957.57,
+  "table_l1_services_named": 19,
+  "table_l1_services_with_flags": 16,
+  "in_table_l1_services": {
+    "records": 40780,
+    "providers": 37725,
+    "flagged_paid": 2633669722.98,
+    "share_of_flagged_paid_pct": 29.1
+  },
+  "skin_substitutes_Q4100_Q4399": {
+    "records": 35,
+    "providers": 33,
+    "flagged_paid": 604568983.02,
+    "codes": [
+      "Q4158",
+      "Q4186",
+      "Q4196",
+      "Q4197",
+      "Q4229",
+      "Q4253",
+      "Q4262"
+    ]
+  },
+  "by_service": [
+    {
+      "hcpcs": "66984",
+      "cms_label": "Xcapsl ctrc rmvl w/o ecp",
+      "cms_claims_reviewed": 211,
+      "cms_overpayment_rate_pct": 5.6,
+      "cms_projected_overpaid": 92578007,
+      "flagged_records": 1917,
+      "flagged_providers": 1917,
+      "flagged_paid": 915126885.59,
+      "rank_by_flagged_paid": 1
+    },
+    {
+      "hcpcs": "99214",
+      "cms_label": "Office o/p est mod 30 min",
+      "cms_claims_reviewed": 450,
+      "cms_overpayment_rate_pct": 5.0,
+      "cms_projected_overpaid": 459838842,
+      "flagged_records": 12105,
+      "flagged_providers": 12046,
+      "flagged_paid": 533739645.13,
+      "rank_by_flagged_paid": 3
+    },
+    {
+      "hcpcs": "99291",
+      "cms_label": "Critical care first hour",
+      "cms_claims_reviewed": 156,
+      "cms_overpayment_rate_pct": 15.1,
+      "cms_projected_overpaid": 134136940,
+      "flagged_records": 13250,
+      "flagged_providers": 13247,
+      "flagged_paid": 369800438.55,
+      "rank_by_flagged_paid": 5
+    },
+    {
+      "hcpcs": "99215",
+      "cms_label": "Office o/p est hi 40 min",
+      "cms_claims_reviewed": 226,
+      "cms_overpayment_rate_pct": 14.8,
+      "cms_projected_overpaid": 245231199,
+      "flagged_records": 5245,
+      "flagged_providers": 5151,
+      "flagged_paid": 181282407.77,
+      "rank_by_flagged_paid": 11
+    },
+    {
+      "hcpcs": "99233",
+      "cms_label": "Sbsq hosp ip/obs high 50",
+      "cms_claims_reviewed": 334,
+      "cms_overpayment_rate_pct": 22.1,
+      "cms_projected_overpaid": 490503977,
+      "flagged_records": 2040,
+      "flagged_providers": 2037,
+      "flagged_paid": 155305136.18,
+      "rank_by_flagged_paid": 12
+    },
+    {
+      "hcpcs": "81479",
+      "cms_label": "Unlisted molecular pathology",
+      "cms_claims_reviewed": 367,
+      "cms_overpayment_rate_pct": 26.0,
+      "cms_projected_overpaid": 114983372,
+      "flagged_records": 2,
+      "flagged_providers": 2,
+      "flagged_paid": 119787903.82,
+      "rank_by_flagged_paid": 18
+    },
+    {
+      "hcpcs": "A0428",
+      "cms_label": "BLS",
+      "cms_claims_reviewed": 131,
+      "cms_overpayment_rate_pct": 12.8,
+      "cms_projected_overpaid": 89122101,
+      "flagged_records": 351,
+      "flagged_providers": 351,
+      "flagged_paid": 116104189.3,
+      "rank_by_flagged_paid": 19
+    },
+    {
+      "hcpcs": "97530",
+      "cms_label": "Therapeutic activities",
+      "cms_claims_reviewed": 245,
+      "cms_overpayment_rate_pct": 18.1,
+      "cms_projected_overpaid": 179101995,
+      "flagged_records": 1113,
+      "flagged_providers": 1113,
+      "flagged_paid": 62059588.21,
+      "rank_by_flagged_paid": 31
+    },
+    {
+      "hcpcs": "97110",
+      "cms_label": "Therapeutic exercises",
+      "cms_claims_reviewed": 214,
+      "cms_overpayment_rate_pct": 25.2,
+      "cms_projected_overpaid": 286653227,
+      "flagged_records": 1005,
+      "flagged_providers": 1005,
+      "flagged_paid": 55020307.3,
+      "rank_by_flagged_paid": 35
+    },
+    {
+      "hcpcs": "A0425",
+      "cms_label": "Ground mileage",
+      "cms_claims_reviewed": 204,
+      "cms_overpayment_rate_pct": 12.4,
+      "cms_projected_overpaid": 90703075,
+      "flagged_records": 335,
+      "flagged_providers": 335,
+      "flagged_paid": 40311795.0,
+      "rank_by_flagged_paid": 41
+    },
+    {
+      "hcpcs": "97112",
+      "cms_label": "Neuromuscular reeducation",
+      "cms_claims_reviewed": 280,
+      "cms_overpayment_rate_pct": 17.3,
+      "cms_projected_overpaid": 122509052,
+      "flagged_records": 773,
+      "flagged_providers": 773,
+      "flagged_paid": 30368745.14,
+      "rank_by_flagged_paid": 44
+    },
+    {
+      "hcpcs": "99223",
+      "cms_label": "1st hosp ip/obs high 75",
+      "cms_claims_reviewed": 282,
+      "cms_overpayment_rate_pct": 13.1,
+      "cms_projected_overpaid": 182122220,
+      "flagged_records": 1788,
+      "flagged_providers": 1788,
+      "flagged_paid": 28525954.59,
+      "rank_by_flagged_paid": 48
+    },
+    {
+      "hcpcs": "97140",
+      "cms_label": "Manual therapy 1/> regions",
+      "cms_claims_reviewed": 223,
+      "cms_overpayment_rate_pct": 30.5,
+      "cms_projected_overpaid": 145990543,
+      "flagged_records": 803,
+      "flagged_providers": 803,
+      "flagged_paid": 24450686.29,
+      "rank_by_flagged_paid": 53
+    },
+    {
+      "hcpcs": "A0429",
+      "cms_label": "BLS-emergency",
+      "cms_claims_reviewed": 68,
+      "cms_overpayment_rate_pct": 12.2,
+      "cms_projected_overpaid": 107645005,
+      "flagged_records": 10,
+      "flagged_providers": 10,
+      "flagged_paid": 879747.5,
+      "rank_by_flagged_paid": 408
+    },
+    {
+      "hcpcs": "A0427",
+      "cms_label": "ALS1-emergency",
+      "cms_claims_reviewed": 68,
+      "cms_overpayment_rate_pct": 10.4,
+      "cms_projected_overpaid": 156804531,
+      "flagged_records": 5,
+      "flagged_providers": 5,
+      "flagged_paid": 476492.88,
+      "rank_by_flagged_paid": 540
+    },
+    {
+      "hcpcs": "99285",
+      "cms_label": "Emergency dept visit hi mdm",
+      "cms_claims_reviewed": 70,
+      "cms_overpayment_rate_pct": 14.3,
+      "cms_projected_overpaid": 164273212,
+      "flagged_records": 38,
+      "flagged_providers": 38,
+      "flagged_paid": 429799.73,
+      "rank_by_flagged_paid": 573
+    },
+    {
+      "hcpcs": "99490",
+      "cms_label": "Chrnc care mgmt staff 1st 20",
+      "cms_claims_reviewed": 68,
+      "cms_overpayment_rate_pct": 65.2,
+      "cms_projected_overpaid": 205392699,
+      "flagged_records": 0,
+      "flagged_providers": 0,
+      "flagged_paid": 0.0,
+      "rank_by_flagged_paid": null
+    },
+    {
+      "hcpcs": "G0439",
+      "cms_label": "Ppps, subseq visit",
+      "cms_claims_reviewed": 194,
+      "cms_overpayment_rate_pct": 13.6,
+      "cms_projected_overpaid": 152839912,
+      "flagged_records": 0,
+      "flagged_providers": 0,
+      "flagged_paid": 0.0,
+      "rank_by_flagged_paid": null
+    },
+    {
+      "hcpcs": "99204",
+      "cms_label": "Office o/p new mod 45 min",
+      "cms_claims_reviewed": 69,
+      "cms_overpayment_rate_pct": 5.4,
+      "cms_projected_overpaid": 86479262,
+      "flagged_records": 0,
+      "flagged_providers": 0,
+      "flagged_paid": 0.0,
+      "rank_by_flagged_paid": null
+    }
+  ]
+}
